@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Page title -->
+    <title>checking form data with javascript</title>
+
+    <!-- jQuery library -->
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <!-- jQuery UI styles -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- jQuery UI library -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Styles for the page -->
+    <style>
+        /* Body styles */
+        body {
+            background-color: rgb(102, 102, 102);
+            color: white;
+        }
+
+        /* Required label styles */
+        label.required::before {
+            content: "* ";
+            color: white;
+        }
+
+        /* General label styles */
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Styles for the "Viesti" textarea */
+        #Viesti {
+            width: 350px;
+            height: 120px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- Heading -->
+    <h1>Lomakkeen tietojen tarkistus Javascriptillä</h1>
+
+    <!-- Introduction paragraph -->
+    <p>Tässä harjoittellaan JavaScriptin käyttöä tekemällä lomakkeen tarkistus.</p>
+
+    <!-- Subheading -->
+    <h2>Yhteyslomake</h2>
+
+    <!-- Form elements -->
+    <form id="Lomakkeeni">
+
+        <!-- First Name input -->
+        <label for="Etunimi" class="required">Etunimi:</label>
+        <input type="text" id="Etunimi" name="Etunimi"><br><br>
+
+        <!-- Last Name input -->
+        <label for="Sukunimi" class="required">Sukunimi:</label>
+        <input type="text" id="Sukunimi" name="Sukunimi"><br><br>
+
+        <!-- Email input -->
+        <label for="Sähköposti" class="required">Sähköposti:</label>
+        <input type="email" id="Sähköposti" name="Sähköposti"><br><br>
+
+        <!-- Street Address input -->
+        <label for="Lähiosoite">Lähiosoite:</label>
+        <input type="text" id="Lähiosoite" name="Lähiosoite" required><br><br>
+
+        <!-- Postal Code input -->
+        <label for="Postinumero">Postinumero:</label>
+        <input type="text" id="Postinumero" name="Postinumero" required><br><br>
+
+        <!-- City input -->
+        <label for="Postitoimipaikka">Postitoimipaikka:</label>
+        <input type="text" id="Postitoimipaikka" name="Postitoimipaikka" required><br><br>
+
+        <!-- Phone input -->
+        <label for="Puhelin">Puhelin:</label>
+        <input type="text" id="Puhelin" name="Puhelin" required><br><br>
+
+        <!-- Date input with jQuery UI datepicker -->
+        <label for="Pvm">Pvm:</label>
+        <input type="text" id="Pvm" name="Pvm" required><br><br>
+
+        <!-- Message textarea -->
+        <label for="Viesti" class="required">Viesti:</label>
+        <textarea id="Viesti" name="Viesti"></textarea><br><br>
+
+        <!-- Submit button -->
+        <button type="submit">Lähetä</button>
+    </form>
+
+    <!-- JavaScript script block -->
+    <script>
+
+        // Execute the code when the document is ready
+        $(document).ready(function () {
+            // Initialize datepicker for the "Pvm" field
+            $("#Pvm").datepicker();
+
+            // Attached a function to the form's "submit" event for email validation
+            $("#Lomakkeeni").on("submit", function () {
+                // Retrieve email value
+                var Sähköposti = $(Sähköposti).val();
+
+                // Check if the email is valid using regular expression
+                var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;;
+
+                // Display an alert if the email is not valid and return false to prevent form submission
+                if (!emailRegex.test(Sähköposti)) {
+                    alert("syötä tavallinen sähköpostiosoite");
+                    return false;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

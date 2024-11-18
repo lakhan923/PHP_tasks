@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student's course registration form</title>
+</head>
+
+<body>
+
+    <form method="post" action="kayttajalomake.php">
+
+        <input type="checkbox" name="email" value="yes"> Send Email Confirmation
+
+        <br>
+
+        <label for="etunimi">Etunimi:</label>
+        <input type="text" name="etunimi"  required size="10" style="margin-bottom: 10px;">
+
+        <br>
+
+        <label for="sukunimi">Sukunimi:</label>
+        <input type="text" name="sukunimi"  required size="10" style="margin-bottom: 10px;">
+
+        <br>
+
+        <label for="opiskelijanumero">Opiskelijanumero:</label>
+        <input type="text" name="opiskelijanumero"  required size="10" style="margin-bottom: 10px;">
+
+        <br>
+
+        <label for="ryhmatunnus">Ryhmatunnus:</label>
+        <input type="password" name="ryhmatunnus"  required size="10" style="margin-bottom: 10px;">
+
+        <br>
+
+        <label for="kurssi">Valitse kurssi luettelosta:</label>
+        <select name="kurssi" id="kurssi" style="margin-bottom: 10px;">
+            <option value="Ohjelmointi-1">Ohjelmointi-1</option>
+            <option value="ITKP1010 Digitaalisen osaamisen perusteet">digitaalisen osaamisen perusteet</option>
+            <option value="TVT20-18.1 Web-ohjelmointi,valinnainen">TVT20-18.1 Web-ohjelmointi,valinnainen</option>
+        </select>
+
+        <br>
+
+        <label for="kurssin_ajankohta">Kurssin ajankohta:</label>
+        <input type="date" name="kurssin_ajankohta"  required size="10" style="margin-bottom: 10px;">
+
+        <br>
+
+        <label for="opettaja">valitse opettaja luettelosta:</label>
+        <select name="opettaja" id="opettaja" style="margin-bottom: 10px;">
+            <option value="Antti-jussi Lakanen">Antti-jussi Lakanen</option>
+            <option value="Sanna Juutinen">Sanna Juutinen</option>
+            <option value="Paunonen Sari">Paunonen Sari</option>
+        </select>
+
+        <br>
+
+        <input type="submit" value="Laheta" style="margin-bottom: 10px; background-color:green; color:white;"></button>
+    </form>
+
+</body>
+
+</html>
